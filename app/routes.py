@@ -7,13 +7,15 @@ posts = []
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        title = request.form.get('title')
-        content = request.form.get('content')
-        if title and content:
-            posts.append({'title': title, 'content': content})
+        name = request.form.get('name')
+        city = request.form.get('city')
+        hobby = request.form.get('hobby')
+        age = request.form.get('age')
+        if name:
+            posts.append({'name': name, 'city': city, 'hobby': hobby, 'age': age})
             return redirect(url_for('index'))
 
-    return render_template('blog.html', posts=posts)
+    return render_template('anket.html', posts=posts)
 
 
 

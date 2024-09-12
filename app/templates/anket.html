@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анкета пользователя</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Анкета пользователя</h2>
+        <form method="post" action="/">
+            <div class="form-group">
+                <label for="name">Имя</label>
+                <input type="text" class="form-control" name="name" placeholder="Введите ваше имя">
+            </div>
+            <div class="form-group">
+                <label for="city">Город</label>
+                <input type="text" class="form-control" name="city" placeholder="Введите ваш город">
+            </div>
+            <div class="form-group">
+                <label for="hobby">Хобби</label>
+                <input type="text" class="form-control" name="hobby" placeholder="Введите ваши хобби">
+            </div>
+            <div class="form-group">
+                <label for="age">Возраст</label>
+                <input type="number" class="form-control" name="age" placeholder="Введите ваш возраст">
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+        <hr>
+
+
+    <h2>Анкеты:</h2>
+        {% for post in posts %}
+        <div class="post-container">
+            <h4>Данные:</h4>
+            <p> Имя: {{ post.name }} </p>
+            <p>Город: {{ post.city }}</p>
+            <p>Хобби: {{ post.hobby }}</p>
+            <p>Возраст: {{ post.age }}</p>
+        </div>
+        {% endfor %}
+
+   </div>
+    <!-- Подключение Bootstrap JS и Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
